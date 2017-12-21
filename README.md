@@ -12,10 +12,10 @@ This project aims to create a few explore fun network based statistics that can 
 
 For any given city, you can use OSMnx to calculate:
 
-- The longest, contiguous road.
-- The shortest road segment
-- The curviest road.
-- The straightest road?
+- What is the the longest, contiguous road?
+- What is the shortest road?
+- What is the curviest road? [**Check out Lombard Street in San Francisco**](https://www.openstreetmap.org/way/402111597)
+- What is the straightest road? (Great for cities to plan Autonomous vehicle pilots)
 - The road with the most intersections.
 - Other rad stats!?
 
