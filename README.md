@@ -17,7 +17,7 @@ For any given city, you can use OSMnx to calculate:
 - What is the curviest road? [**Check out Lombard Street in San Francisco**](https://www.openstreetmap.org/way/402111597)
 - What is the straightest road? (Great for cities to plan Autonomous vehicle pilots)
 - The road with the most intersections.
-- Other rad stats!?
+- Other rad stats!? You tell us!
 
 # How (Resources)
 - **Add your rad stat to the notebooks folder!**
