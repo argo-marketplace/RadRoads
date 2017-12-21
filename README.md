@@ -6,7 +6,7 @@ Using OSMnx to find Rad Roads in any city!
 Roads, everybody loves complaining about them - very few actually study them. Here is one way to uncover insights and have fun!
 
 ## What
-OSMnx is an incredible Python package that lets you study your city's streets in new and interesting ways, programmatically.
+*Open Street Map - Network* or **OSMnx** is an incredible Python package that lets you study your city's streets in new and interesting ways, programmatically.
 
 This project aims to create a few explore. For any given city, you can use OSMnx to calculate:
 
