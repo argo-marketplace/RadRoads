@@ -24,6 +24,6 @@ For any given city, you can use OSMnx to calculate:
 - [Introduction and examples](http://geoffboeing.com/2016/11/osmnx-python-street-networks/)
 - [Example notebooks to get you started](https://github.com/gboeing/osmnx-examples/tree/master/notebooks)
 - [Network Statistics on Streets](http://osmnx.readthedocs.io/en/stable/osmnx.html?highlight=basic_stats#module-osmnx.stats)
-- Former CUSP student and Street Data Warrior Princess, Manushi's work
+- Former CUSP student and Street Data Warrior Princess, [Manushi Majumdar's](https://www.linkedin.com/in/manushimajumdar/) explorations
    - https://github.com/ManushiM/street101/blob/master/streets101_lion_osmnx.ipynb
    - https://github.com/ManushiM/CartoCamp_Workshops/blob/master/Workshop1_April2017/CartoCamp_OSMnx.ipynb
