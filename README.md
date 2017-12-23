@@ -8,7 +8,7 @@ Roads, everybody loves complaining about them - very few actually study them. He
 ## What
 *Open Street Map - Network* or **OSMnx** is an incredible Python package that lets you study your city's streets in new and interesting ways, programmatically.
 
-This project aims to create a few explore fun network based statistics that can be applied on a given city's street network.
+This project aims to create a few explore fun network based statistics that can be applied on a given city's street network. In this project, we will focus on New York City, Los Angeles, and Boulder's Streets.
 
 For any given city, you can use OSMnx to calculate:
 
