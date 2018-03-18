@@ -37,20 +37,20 @@ For any given city, you can use OSMnx to calculate:
     - What extensions can you think of to make the project more useful?
 
 2. Introduce improvements
-    - Use Sinuosity as a measure instead of Circuity. [geopandas implementation](https://github.com/Geosyntec/gisutils/blob/a4034d5dfed472588548306860d010b3dd99a980/gisutils/algo.py)
+    - ~~Use Sinuosity as a measure instead of Circuity. [geopandas implementation](https://github.com/Geosyntec/gisutils/blob/a4034d5dfed472588548306860d010b3dd99a980/gisutils/algo.py)~~
     - Apply filters for results (e.g., longest, shortest)
-    - Merge a single RadRoads() function that shows the following for each input city with :
-        - Longest Segment [Red]
-        - Shortest Segment [Blue]
-        - Straightest Segment [Green]
-        - Most Sinusoisal segment aka Curviest [Yellow]
+    - ~~Merge a single RadRoads() function that shows the following for each input city with :~~
+        - ~~Longest Segment [Red]~~
+        - ~~Shortest Segment [Blue]~~
+        - ~~Straightest Segment [Green]~~
+        - ~~Most Sinusoisal segment aka Curviest [Yellow]~~
     - [Index based on Name and From-To Nodes](https://www.openstreetmap.org/way/260042856#map=17/40.01316/-105.28674&layers=D): OSM contains `Node` information for every `Way` and this can be used to identify, spatially, the street segments.
     - [Colorize street types](http://geoffboeing.com/2016/11/osmnx-python-street-networks/)
     - Insert Google map interactive window
 
 3. Polish notebooks and fix in-notebook issues
 
-4. Blog post on current results
+4. ~~Blog post on current results~~
 
 5. Think in the [larger context](https://github.com/Streets-Data-Collaborative/Autonomous_Transportation_Analyzer) and plan for the next
 
