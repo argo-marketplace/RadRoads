@@ -1,8 +1,29 @@
 # RadRoads
 Using OSMnx to find Rad Roads in any city!
-![RadRoads](https://github.com/argo-marketplace/RadStreets/blob/master/road-166543_960_720.jpg)
+![RadRoads](https://github.com/argo-marketplace/RadStreets/blob/master/cover-photo.jpg)
+
+You may import [radroads.py](https://github.com/argo-marketplace/RadRoads/blob/master/notebooks/radroads.py) as functions into your Jupyter Notebooks, as shown in this [demo](https://github.com/argo-marketplace/RadRoads/blob/master/notebooks/demo_radroads.ipynb). Or, manually download radroads.py and use it as a script. Simply put the geographical area of interest as an argument.
+
+For example:
+
+```
+git clone https://github.com/argo-marketplace/RadRoads.git
+python radroads.py "Brooklyn, NY"
+```
+
+Returns:
+
+```
+Top 5 roads on each list:
+1. Shortest
+2. Longest
+3. Straightest
+4. Curviest
+And a graph plot with the top 1 being colorized.
+```
 
 ## Why
+
 Roads, everybody loves complaining about them - very few actually study them. Here is one way to uncover insights and have fun!
 
 ## What
@@ -19,7 +40,8 @@ For any given city, you can use OSMnx to calculate:
 - The road with the most intersections.
 - Other rad stats!? You tell us!
 
-# How (Resources)
+## How (Resources)
+
 - **Add your rad stat to the notebooks folder!**
 - [Introduction and examples](http://geoffboeing.com/2016/11/osmnx-python-street-networks/)
 - [Example notebooks to get you started](https://github.com/gboeing/osmnx-examples/tree/master/notebooks)
