@@ -21,7 +21,7 @@ from collections import Counter
 from geopy.distance import vincenty
 from shapely.geometry import Point
 
-def GetRoads(city, ntype='drive'):
+def GetRoads(city, ntype='all_private'):
     """
     Load road network data (shapefile) locally. If not available,
     download the data through OpenStreetMap Nominatim API first.
@@ -54,6 +54,7 @@ def GetRoads(city, ntype='drive'):
     # download from OpenStreetMap if local data is not available
     except:
         # try different query results
+        print("Trying to download the network of " + city + " through OSM Nominatim\n")
         n = 1
         while n <= 5:
             try:
@@ -65,9 +66,9 @@ def GetRoads(city, ntype='drive'):
         G_nodes = gpd.read_file("data/" + city + "/nodes/nodes.shp")
         G_edges = gpd.read_file("data/" + city + "/edges/edges.shp")
         print("Data of " + city + " is downloaded, saved, and loaded as shapefiles\n")
-    return(G_nodes, G_edges);
+    return G_nodes, G_edges;
 
-def RadRoads(city, ntype='drive', limit=5):
+def RadRoads(city, ntype='all_private', limit=5):
     """
     In a given city (or geographical area) in OSM:
     find the straightest and curviest roads by name;
@@ -106,6 +107,7 @@ def RadRoads(city, ntype='drive', limit=5):
     # download from OpenStreetMap if local data is not available
     except:
         # try different query results
+        print("Trying to download the network of " + city + " through OSM Nominatim\n")
         n = 1
         while n <= 5:
             try:
@@ -223,11 +225,8 @@ def RadRoads(city, ntype='drive', limit=5):
 
 # run RadRoads function
 if __name__ == '__main__':
-    if not len(sys.argv) == 2:
-        print ("Invalid number of arguments. Run as: python radroads.py <city>")
+    if not len(sys.argv) == 3:
+        print ("Invalid number of arguments. Run as: python radroads.py <city> <road_type>")
         sys.exit()
 
-    RadRoads(sys.argv[1], ntype='drive', limit=5)
-
-
-
+    RadRoads(sys.argv[1], sys.argv[2], limit=5)
