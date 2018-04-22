@@ -4,16 +4,31 @@ Using OSMnx to find Rad Roads in any city!
 
 You may import [radroads.py](https://github.com/argo-marketplace/RadRoads/blob/master/notebooks/radroads.py) as functions into your Jupyter Notebooks, as shown in this [demo](https://github.com/argo-marketplace/RadRoads/blob/master/notebooks/demo_radroads.ipynb). Or, manually download radroads.py and use it as a script. Simply put the geographical area of interest as an argument.
 
-For example:
+# Usage:
 
 ```
-git clone https://github.com/argo-marketplace/RadRoads.git
-python radroads.py "Brooklyn, NY" "all"
-# where "all" indicates network type
+- git clone https://github.com/argo-marketplace/RadRoads.git
+
+- Check requirements.txt for required packages.
+
+- python radroads.py "City, State" "network_type"
+
+- python radroads.py "Brooklyn, NY" "all"
 ```
 
-Returns:
+Refer http://nominatim.openstreetmap.org/ for correct City,State syntax.
 
+network_type values via [OSMnx](https://github.com/gboeing/osmnx):
+
+- `drive` - get drivable public streets (but not service roads)
+- `drive_service` - get drivable streets, including service roads
+- `walk` - get all streets and paths that pedestrians can use (this network type ignores one-way directionality)
+- `bike` - get all streets and paths that cyclists can use
+- `all` - download all non-private OSM streets and paths
+- `all_private` - download all OSM streets and paths, including private-access ones
+
+
+Rad Roads will return
 ```
 Top 5 roads on each list:
 1. Shortest
@@ -23,14 +38,6 @@ Top 5 roads on each list:
 And a graph plot with the top 1 being colorized.
 ```
 
-Network Types as Suggested by [OSMnx](https://github.com/gboeing/osmnx):
-
-- `drive` - get drivable public streets (but not service roads)
-- `drive_service` - get drivable streets, including service roads
-- `walk` - get all streets and paths that pedestrians can use (this network type ignores one-way directionality)
-- `bike` - get all streets and paths that cyclists can use
-- `all` - download all non-private OSM streets and paths
-- `all_private` - download all OSM streets and paths, including private-access ones
 
 ## Why
 
