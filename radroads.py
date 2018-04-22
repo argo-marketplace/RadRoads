@@ -12,6 +12,7 @@ import sys
 import numpy as np
 import pandas as pd
 import pylab as pl
+#import pdb;
 
 import osmnx as ox
 import networkx as nx
@@ -21,59 +22,12 @@ from collections import Counter
 from geopy.distance import vincenty
 from shapely.geometry import Point
 
-def GetRoads(city, ntype='all_private'):
-    """
-    Load road network data (shapefile) locally. If not available,
-    download the data through OpenStreetMap Nominatim API first.
-    
-    Parameters
-    ----------
-    city : string
-        The name of the city (or place) of interest.
-    ntype : string
-        The type of street network to get.
-        {'walk', 'bike', 'drive', 'drive_service', 'all', 'all_private'} 
-    Returns
-    -------
-    G_nodes : geopandas.geodataframe.GeoDataFrame
-        The GeoDataFrame of the nodes of city road network.
-    G_edges : geopandas.geodataframe.GeoDataFrame
-        The GeoDataFrame of the edges of city road network.
-    Notes
-    -----
-    If data download is unsuccessful, check query results on
-    the Nominatim web page and see if available results exist.
-    """
-    
-    # load road network from local data
-    try:
-        G_nodes = gpd.read_file("data/" + city + "/nodes/nodes.shp")
-        G_edges = gpd.read_file("data/" + city + "/edges/edges.shp")
-        print("Existing local data of " + city + " is loaded as shapefiles\n")
-
-    # download from OpenStreetMap if local data is not available
-    except:
-        # try different query results
-        print("Trying to download the network of " + city + " through OSM Nominatim\n")
-        n = 1
-        while n <= 5:
-            try:
-                G = ox.graph_from_place(query=city, network_type=ntype, which_result=n)
-                break
-            except ValueError:
-                n += 1
-        ox.save_graph_shapefile(G, filename=city, folder=None, encoding='utf-8')
-        G_nodes = gpd.read_file("data/" + city + "/nodes/nodes.shp")
-        G_edges = gpd.read_file("data/" + city + "/edges/edges.shp")
-        print("Data of " + city + " is downloaded, saved, and loaded as shapefiles\n")
-    return G_nodes, G_edges;
-
-def RadRoads(city, ntype='all_private', limit=5):
+def RadRoads(city, ntype, limit=5):
     """
     In a given city (or geographical area) in OSM:
     find the straightest and curviest roads by name;
     find the shortest and longest roads by name.
-    
+
     Parameters
     ----------
     city : string
@@ -102,7 +56,7 @@ def RadRoads(city, ntype='all_private', limit=5):
     try:
         G_nodes = gpd.read_file("data/" + city + "/nodes/nodes.shp")
         G_edges = gpd.read_file("data/" + city + "/edges/edges.shp")
-        print("Existing local data of " + city + " is loaded as shapefiles\n")
+        print("Using Existing data of " + city + " and loaing as shapefiles\n")
 
     # download from OpenStreetMap if local data is not available
     except:
@@ -128,13 +82,13 @@ def RadRoads(city, ntype='all_private', limit=5):
     G_edges['length'] = G_edges['length'].astype('float')
     dict_v = {'length': 'sum', 'highway': 'first', 'oneway': 'first'}
     table = G_edges.groupby('name').agg(dict_v).reset_index()
-    
+
     # remove messy segments w/o names
     table = table[table['name'] != '']
     table.dropna(how='any', inplace=True)
 
     ### LENGTH ###
-    
+
     # calculate shortest and longest roads
     short = table.sort_values(by='length', ascending=True).head(limit)
     long = table.sort_values(by='length', ascending=False).head(limit)
@@ -148,7 +102,7 @@ def RadRoads(city, ntype='all_private', limit=5):
     sinuosity = []
 
     ### SINUOSITY ###
-    
+
     # calculate sinuosity for each road
     # create a dataframe containing all the segments of a road for each road
     for i, r in enumerate(roads):
@@ -225,6 +179,7 @@ def RadRoads(city, ntype='all_private', limit=5):
 
 # run RadRoads function
 if __name__ == '__main__':
+    #pdb.set_trace()
     if not len(sys.argv) == 3:
         print ("Invalid number of arguments. Run as: python radroads.py <city> <road_type>")
         sys.exit()
