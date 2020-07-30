@@ -20,7 +20,7 @@ import networkx as nx
 import geopandas as gpd
 
 from collections import Counter
-from geopy.distance import vincenty
+from geopy.distance import geodesic
 from shapely.geometry import Point
 
 def RadRoads(city, ntype, limit=5):
@@ -129,7 +129,7 @@ def RadRoads(city, ntype, limit=5):
             p2 = coord2[1], coord2[0]
 
             # calculate shortest Distance between two nodes
-            d_d = vincenty(p1, p2).meters
+            d_d = geodesic(p1, p2).meters
             # calculate actual route Length
             d_l = df_road['length'].astype('float', error='coerce').sum()
             # calculate sinuosity
