@@ -35,7 +35,7 @@ A secondary subdivision can be done at municipal subdivision levels.
 
 These were created to project population changes in New York City between 2000-2030 at a smaller scale. Their boundaries are aligned on major thoroughfares.
 
-**[Municipal Ward Boundaries]()**
+**[Municipal Ward Boundaries](https://github.com/datameet/Municipal_Spatial_Data/tree/master/Delhi)**
 
 These are subdivisions at a muunicipal level created for administrative reasons. Therefore the reasons behind the creation of these ward boundaries are different from that of the NTAs in New York. However, the division level is granular enough for comparison reasons.
 
